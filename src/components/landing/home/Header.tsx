@@ -1,9 +1,27 @@
 // src/components/Header.jsx
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    // Helper to handle section navigation
+    const handleSectionNav = (hash: string) => (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (location.pathname !== "/") {
+            navigate(`/#${hash.replace('#', '')}`);
+        } else {
+            const el = document.getElementById(hash.replace("#", ""));
+            if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+            } else {
+                window.location.hash = hash;
+            }
+        }
+        setMobileMenuOpen(false);
+    };
 
     return (
         <>
@@ -30,12 +48,12 @@ export default function Header() {
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex space-x-6 text-white">
-                        <a href="#home" className="hover:text-orange-500 transition-colors">Home</a>
-                        <a href="/about" className="hover:text-orange-500 transition-colors">About</a>
-                        <a href="#features" className="hover:text-orange-500 transition-colors">Features</a>
-                        <a href="#platform" className="hover:text-orange-500 transition-colors">Platform</a>
-                        <a href="#solutions" className="hover:text-orange-500 transition-colors">Solutions</a>
-                        <a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a>
+                        <a href="#home" onClick={handleSectionNav("#home")} className="hover:text-orange-500 transition-colors">Home</a>
+                        <Link to="/about" className="hover:text-orange-500 transition-colors">About</Link>
+                        <a href="#features" onClick={handleSectionNav("#features")} className="hover:text-orange-500 transition-colors">Features</a>
+                        <a href="#platform" onClick={handleSectionNav("#platform")} className="hover:text-orange-500 transition-colors">Platform</a>
+                        <a href="#solutions" onClick={handleSectionNav("#solutions")} className="hover:text-orange-500 transition-colors">Solutions</a>
+                        <a href="#contact" onClick={handleSectionNav("#contact")} className="hover:text-orange-500 transition-colors">Contact</a>
                     </nav>
 
                     {/* Sign In / Sign Up Buttons & Mobile Menu Toggle */}
@@ -81,58 +99,22 @@ export default function Header() {
                     <nav className="md:hidden bg-gray-800 p-4 shadow-lg animate-fadeIn text-white">
                         <ul className="space-y-4 text-center">
                             <li>
-                                <a
-                                    href="#home"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Home
-                                </a>
+                                <a href="#home" onClick={handleSectionNav("#home")} className="block hover:text-orange-500 transition-colors">Home</a>
                             </li>
                             <li>
-                                <a
-                                    href="/about"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Home
-                                </a>
+                                <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block hover:text-orange-500 transition-colors">About</Link>
                             </li>
                             <li>
-                                <a
-                                    href="#features"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Features
-                                </a>
+                                <a href="#features" onClick={handleSectionNav("#features")} className="block hover:text-orange-500 transition-colors">Features</a>
                             </li>
                             <li>
-                                <a
-                                    href="#platform"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Platform
-                                </a>
+                                <a href="#platform" onClick={handleSectionNav("#platform")} className="block hover:text-orange-500 transition-colors">Platform</a>
                             </li>
                             <li>
-                                <a
-                                    href="#solutions"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Solutions
-                                </a>
+                                <a href="#solutions" onClick={handleSectionNav("#solutions")} className="block hover:text-orange-500 transition-colors">Solutions</a>
                             </li>
                             <li>
-                                <a
-                                    href="#contact"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block hover:text-orange-500 transition-colors"
-                                >
-                                    Contact
-                                </a>
+                                <a href="#contact" onClick={handleSectionNav("#contact")} className="block hover:text-orange-500 transition-colors">Contact</a>
                             </li>
                             <li className="pt-2">
                                 <Link to="/signup/choose" className="w-full bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md transition-colors block text-center">
