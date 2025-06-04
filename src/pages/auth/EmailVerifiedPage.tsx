@@ -1,6 +1,7 @@
 // src/pages/EmailVerifiedPage.jsx
 
 import AuthHeader from "../../components/auth/AuthHeader";
+import { Link } from "react-router-dom";
 
 export default function EmailVerifiedPage() {
     return (
@@ -53,9 +54,9 @@ export default function EmailVerifiedPage() {
                 <div className="mt-6 text-center">
                     <p className="text-sm text-gray-400">
                         Need help?{" "}
-                        <a href="/contact" className="text-orange-500 hover:underline">
+                        <Link to="/contact" className="text-orange-500 hover:underline">
                             Contact Support
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>

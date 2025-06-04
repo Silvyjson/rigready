@@ -1,6 +1,7 @@
 // src/pages/ResetPasswordPage.jsx
 
 import AuthHeader from "../../components/auth/AuthHeader";
+import { Link } from "react-router-dom";
 
 export default function ResetPasswordPage() {
     return (
@@ -57,9 +58,9 @@ export default function ResetPasswordPage() {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-400">
                             Remembered your password?{" "}
-                            <a href="/signin" className="text-orange-500 hover:underline">
+                            <Link to="/signin" className="text-orange-500 hover:underline">
                                 Sign In
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

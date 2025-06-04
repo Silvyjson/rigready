@@ -2,6 +2,7 @@
 
 import AuthCard from "../../components/auth/AuthCard";
 import AuthHeader from "../../components/auth/AuthHeader";
+import { Link } from "react-router-dom";
 
 export default function SignInPage() {
     return (
@@ -48,16 +49,18 @@ export default function SignInPage() {
                             Sign In
                         </button>
                         <div className="mt-2 text-right">
-                            <a href="/forgot-password" className="text-xs text-orange-400 hover:underline font-medium">Forgot Password?</a>
+                            <Link to="/forgot-password" className="text-xs text-orange-400 hover:underline font-medium">
+                                Forgot Password?
+                            </Link>
                         </div>
                     </form>
 
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-400">
                             Don't have an account?{" "}
-                            <a href="/signup/choose" className="text-orange-500 hover:underline">
+                            <Link to="/signup/choose" className="text-orange-500 hover:underline">
                                 Sign Up
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </AuthCard>

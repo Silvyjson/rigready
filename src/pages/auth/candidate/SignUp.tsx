@@ -1,6 +1,7 @@
 // src/pages/CandidateSignUpPage.jsx
 
 import AuthHeader from "../../../components/auth/AuthHeader";
+import { Link } from "react-router-dom";
 
 export default function CandidateSignUpPage() {
     return (
@@ -133,9 +134,9 @@ export default function CandidateSignUpPage() {
                     <div className="mt-6 text-center">
                         <p className="text-sm text-gray-400">
                             Already have an account?{" "}
-                            <a href="/signin" className="text-orange-500 hover:underline">
+                            <Link to="/signin" className="text-orange-500 hover:underline">
                                 Sign In
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </div>

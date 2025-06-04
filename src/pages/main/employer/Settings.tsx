@@ -1,6 +1,7 @@
 // src/pages/employer/SettingsPage.jsx
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import EmployerLayout from "../../../components/main/employer/EmployerLayout";
 
 // Type definitions
@@ -223,9 +224,9 @@ export default function SettingsPage() {
                         <h3 className="text-xl font-bold">Team & Role Management</h3>
                         <p className="text-gray-400">
                             These are global team settings.{" "}
-                            <a href="/employer/team" className="text-orange-500 hover:underline">
+                            <Link to="/employer/team" className="text-orange-500 hover:underline">
                                 Go to full team management
-                            </a>
+                            </Link>
                         </p>
 
                         <div>

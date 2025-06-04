@@ -2,6 +2,7 @@
 
 import AuthCard from "../../components/auth/AuthCard";
 import AuthHeader from "../../components/auth/AuthHeader";
+import { Link } from "react-router-dom";
 
 export default function SignUpPage() {
     return (
@@ -83,9 +84,9 @@ export default function SignUpPage() {
                     <div className="mt-8 text-center">
                         <p className="text-base text-gray-300">
                             Already have an account?{' '}
-                            <a href="/signin" className="text-orange-400 hover:underline font-semibold">
+                            <Link to="/signin" className="text-orange-400 hover:underline font-semibold">
                                 Sign In
-                            </a>
+                            </Link>
                         </p>
                     </div>
                 </AuthCard>

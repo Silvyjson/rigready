@@ -2,6 +2,7 @@
 
 import React from "react";
 import EmployerLayout from "../../../components/main/employer/EmployerLayout";
+import { Link } from "react-router-dom";
 
 // Types
 type StatCardProps = {
@@ -32,7 +33,7 @@ type ComplianceAlertProps = {
 
 // Components
 const StatCard = ({ title, value, icon, link }: StatCardProps) => (
-    <a href={link} className="block hover:shadow-lg transition-shadow">
+    <Link to={link} className="block hover:shadow-lg transition-shadow">
         <div className="bg-gray-800 rounded-lg p-6 shadow-md hover:bg-gray-750">
             <div className="flex items-center">
                 <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mr-4">
@@ -44,7 +45,7 @@ const StatCard = ({ title, value, icon, link }: StatCardProps) => (
                 </div>
             </div>
         </div>
-    </a>
+    </Link>
 );
 
 const JobPipelineCard = ({ job }: { job: JobPipeline }) => (
@@ -233,9 +234,9 @@ export default function Dashboard() {
                         icon="⛔"
                         message="Amina Musa is missing medical fitness clearance."
                     />
-                    <a href="/employer/compliance" className="text-orange-500 text-sm hover:underline block mt-2">
+                    <Link to="/employer/compliance" className="text-orange-500 text-sm hover:underline block mt-2">
                         → View all compliance issues
-                    </a>
+                    </Link>
                 </div>
             </div>
         </EmployerLayout>
