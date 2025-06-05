@@ -21,8 +21,8 @@ export default function ChooseRolePage() {
 
                 <div className="grid grid-cols-1 gap-6">
                     {/* Candidate Card */}
-                    <button
-                        onClick={() => (window.location.href = "/signup/candidate")}
+                    <Link
+                        to="/signup/candidate"
                         className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-xl shadow-lg p-6 text-left flex items-center space-x-4"
                     >
                         <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -32,11 +32,11 @@ export default function ChooseRolePage() {
                             <h3 className="text-xl font-semibold text-orange-500">Job Seeker</h3>
                             <p className="text-gray-300">Looking for offshore or upstream opportunities?</p>
                         </div>
-                    </button>
+                    </Link>
 
                     {/* Employer Card */}
-                    <button
-                        onClick={() => (window.location.href = "/signup/employer")}
+                    <Link
+                        to="/signup/employer"
                         className="bg-gray-800 hover:bg-gray-700 transition-colors rounded-xl shadow-lg p-6 text-left flex items-center space-x-4"
                     >
                         <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
@@ -46,7 +46,7 @@ export default function ChooseRolePage() {
                             <h3 className="text-xl font-semibold text-blue-400">Hiring Manager</h3>
                             <p className="text-gray-300">Post jobs and find skilled oil & gas professionals.</p>
                         </div>
-                    </button>
+                    </Link>
                 </div>
 
                 <div className="mt-8 text-center">
